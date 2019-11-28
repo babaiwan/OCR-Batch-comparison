@@ -11,11 +11,9 @@ How to use:
 
 
 
-系统变量-Path:					C:Program File\Tesseract-OCR
+	系统变量-Path:			  C:Program File\Tesseract-OCR
 
-
-
-系统变量-新增-TESSDATA_PREFIX:	C:\Program Files\Tesseract-OCR\tessdata
+	系统变量-新增-TESSDATA_PREFIX:	C:\Program Files\Tesseract-OCR\tessdata
 
 
 2.	Cmd中进入到jar文件夹，输入”java -jar LanguageTool.jar” to Start
