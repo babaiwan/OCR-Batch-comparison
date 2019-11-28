@@ -119,10 +119,12 @@ public class mainui extends JFrame{
 			{
 			String name=f.getName();
 			String lastname=name.substring(name.lastIndexOf(".")+1);
+			String fname = null;
 			if(lastname.equals("jpg")||lastname.equals("JPG"))
 //			System.out.println(name);
+			fname=name.substring(0,name.lastIndexOf(".")).toString();
 			{	
-				comd = "tesseract "+name+" Result"+i;
+				comd = "tesseract "+name+" "+fname;
 				i++;
 //				System.out.println(comd);
 //				Runtime.getRuntime().exec(comd,null,new File("D:\\Java\\OCT-Test"));	//生成TXT到指定位置
@@ -167,7 +169,7 @@ public class mainui extends JFrame{
 				String aleach= (String)List.get(i);
 				System.out.println(aleach);				//主输出
 			}
-													//多线程UI
+													
 		ListUI.OutPutList(List,a,b);
 		
 	}
