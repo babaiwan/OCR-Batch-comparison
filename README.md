@@ -8,6 +8,9 @@ How to use:
 	You can learn how to use it according to a video I transcribe.
 
 1.	确保你已经安装了以上环境(use “tesseract -v” in cmd to test)（需要配置环境变量）
+
+
+
 系统变量-Path:					C:Program File\Tesseract-OCR
 
 
