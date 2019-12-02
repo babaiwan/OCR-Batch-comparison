@@ -7,10 +7,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.io.*;
-
 public class ListUI {
 		static int index;
-public static void OutPutList(ArrayList<Object> ListAnswer,File a,File b) {
+public static void OutPutList(ArrayList<Object> ListAnswer,ArrayList<String> Filename,File a,File b) {
          
     	
     	JFrame jf = new JFrame("测试窗口");
@@ -38,9 +37,9 @@ public static void OutPutList(ArrayList<Object> ListAnswer,File a,File b) {
             if(e.getValueIsAdjusting())
             {    
             	index = list.getSelectedIndex();    // 获取被选中的选项索引
-                ListModel<String> listModel = list.getModel();   // 获取选项数据的 ListModel
-                System.out.println("选中: " + index + " = " + listModel.getElementAt(index));   
-//                Store store =new Store(index,a,b);
+//                ListModel<String> listModel = list.getModel();   // 获取选项数据的 ListModel
+                System.out.println("选中: " + index + " = " +Filename.get(index));  
+                
               }
             }
         });
@@ -53,7 +52,7 @@ public static void OutPutList(ArrayList<Object> ListAnswer,File a,File b) {
 					try {											//获取ture和false的索引序号，把filepath传过来，输出一个对比框
 						
 //					    System.out.println(index);
-						new Windowm(a,b,index);
+						new Windowm(a,b,Filename.get(index));
 						}catch(Exception e1){
 				}
 			}

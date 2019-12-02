@@ -50,7 +50,7 @@ class Windowm extends JFrame
     JSplitPane jSplitPane2 =new JSplitPane();//设定为拆分布局
     JSplitPane jSplitPane3 =new JSplitPane();//设定为拆分布局
     
-    public Windowm(File a, File b, int index)
+    public Windowm(File a, File b, String Answerfile)
     {	File[] Slist=a.listFiles();
     	File[] Clist=b.listFiles();
     
@@ -186,12 +186,9 @@ class Windowm extends JFrame
        
    //=======================================扫描文件============================    
     text1.setText("");
-    String Stringindex=String.valueOf(index);
     for(File temp:Slist)
     	{			
-    		String filename=temp.getName();
-    	
-    		if(filename.substring(filename.lastIndexOf(".")+1).equals("txt")&&(filename.substring(6,filename.lastIndexOf(".")).equals(Stringindex))) 
+    		if(temp.getName().equals(Answerfile)) 
     		{
     			try {
     			path1=temp.getAbsolutePath();
@@ -203,17 +200,14 @@ class Windowm extends JFrame
                 docs.insertString(docs.getLength(), File1, attrset);
     			}catch(Exception e) {    				
     			}
-    			System.out.print("OK i find it: the temp"+"\n");
+    			System.out.print("OK i find it: the temp is"+Answerfile+"\n");
     		}
     	}
     //=======================================答案文件==============================
     text2.setText("");
-//    String Stringindex2=String.valueOf(index);
     for(File temp:Clist)
-    	{			
-    		String filename=temp.getName();
-    	
-    		if(filename.substring(filename.lastIndexOf(".")+1).equals("txt")&&(filename.substring(6,filename.lastIndexOf(".")).equals(Stringindex))) 
+    	{	
+    		if(temp.getName().equals(Answerfile)) 
     		{
     			try {
     				path2=temp.getAbsolutePath();//获取文件绝对地址        

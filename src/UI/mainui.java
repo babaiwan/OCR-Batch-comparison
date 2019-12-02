@@ -104,8 +104,8 @@ public class mainui extends JFrame{
 		
 	}
 	
-	public static void cmd(String fileDir) {
-		int i=0;  	String comd = null;
+	public static void cmd(String fileDir) { 	
+		String comd = null;
 		
 		File file=new File(fileDir);	//传入文件位置到file变量，通过listFile获取子目录下所有的file到files数组中去
 		File[]files=file.listFiles();
@@ -114,21 +114,19 @@ public class mainui extends JFrame{
 		
 		
 		try
-		{
+		{	
 			for(File f:files)
 			{
 			String name=f.getName();
 			String lastname=name.substring(name.lastIndexOf(".")+1);
 			String fname = null;
+			
 			if(lastname.equals("jpg")||lastname.equals("JPG"))
-//			System.out.println(name);
-			fname=name.substring(0,name.lastIndexOf(".")).toString();
-			{	
-				comd = "tesseract "+name+" "+fname;
-				i++;
-//				System.out.println(comd);
-//				Runtime.getRuntime().exec(comd,null,new File("D:\\Java\\OCT-Test"));	//生成TXT到指定位置
-				Runtime.getRuntime().exec(comd,null,new File(SourceFile.toString()));
+				{	
+					fname=name.substring(0,name.lastIndexOf(".")).toString();
+					comd = "tesseract "+name+" "+fname;
+					Runtime.getRuntime().exec(comd,null,new File(SourceFile.toString()));
+				
 				}
 			}
 		}
@@ -144,8 +142,9 @@ public class mainui extends JFrame{
 //		System.out.print(b);
 		File[] SFolder=a.listFiles();
 		File[] CFolder=b.listFiles();
-		ArrayList<Object> List=new ArrayList<Object>();			//存放比较结果
-																			//传参函数
+		ArrayList<Object> List=new ArrayList<Object>();						//存放比较结果
+		ArrayList<String> Filename=new ArrayList<String>();					//传参函数
+		
 		try {						//提取txt文件
 			int i=0;int j=0;
 			while(SFolder[i]!=null) {
@@ -154,7 +153,7 @@ public class mainui extends JFrame{
 		
 				if(lastname.equals("txt") )
 				{
-//					System.out.print(compareFile(SFolder[i],CFolder[j])+"\n");
+					Filename.add(name);
 					List.add(compareFile(SFolder[i],CFolder[j]));	
 					j++;
 				}
@@ -168,9 +167,12 @@ public class mainui extends JFrame{
 			{
 				String aleach= (String)List.get(i);
 				System.out.println(aleach);				//主输出
+				
+				String name=(String)Filename.get(i);
+				System.out.println(name);
 			}
 													
-		ListUI.OutPutList(List,a,b);
+		ListUI.OutPutList(List,Filename,a,b);
 		
 	}
 	
