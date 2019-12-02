@@ -28,6 +28,3 @@ Java 字节码文件的运行环境
 You need to learn something about OCR and training it in your machine.(for now,it only support English and not translate 100% precisely)
 
 
-```How to improve:```
-	This only provide a very simple demo，if u wan to improve the accuracy.
-You need to learn something about OCR and training it in your machine.(for now,it only support English and not translate 100% precisely)
